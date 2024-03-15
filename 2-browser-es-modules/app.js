@@ -15,7 +15,7 @@
 // ilk olarak ana dosyamızı html de script oalrak yazacağız ve mutlaka type module yazmalıyız...
 // yardımcı dosyada yaptığım fonksiyonları ana dosyada çağırmak istiyorum onun için export ve import yapacağız.bir değişkenin,fonksiyonun vb. önüne export yaptığımızda dışarıya açmiş oluyoruz.
 // !14-named export
-import {add} from "./hesapMakinası.js";
+import {add} from "./hesapMakinası.js"; //as ile isim değişikliği yaplılmalı çünkü aşağıda internal add function yaptık.aynı isim olmaz.
 import { sub, mul, div } from "./hesapMakinası.js"; //bu şekilde hepsini aynı yerde de verebiliriz. aynı yerden geldiği için.
 
 console.log("add:",add(3,5)); 
@@ -32,3 +32,17 @@ console.log(pi);
 
 import message from "./hesapMakinası.js";
 import givemessage from "./hesapMakinası.js"
+
+//? internal add function
+const add = (a, b, c) => a + b + c
+
+console.log(add(3, 4, 5))
+
+
+//! use strict modu dogrudan enable oldugu icin hata verir.
+// deneme = 5
+
+//? global scope this kelimesi window nesnesini göstermez
+console.log(this) //? undefined
+
+// NOT: js kodları browserda çalışmaz server gereklidir.
